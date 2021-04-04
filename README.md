@@ -1,6 +1,6 @@
 # Gerechten kiezer
 
-Het idee achter dit project is een programma maken waar je kunt invullen voor hoeveel dagen je gerechten wilt kiezenn en hoeveel hiervan vis en vegetarisch moet zijn.
+Het idee achter dit project is een programma maken waar je kunt invullen voor hoeveel dagen je gerechten wilt kiezen en hoeveel hiervan vis en vegetarisch moet zijn.
 
 ## Status van mijn code
 
