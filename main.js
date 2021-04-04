@@ -102,7 +102,8 @@ const keuze = (hoeveelDagen,vega,vis) => {
 // functie maakt er een mooi zinnetje van
 const wijEten = (hoeveelDagen,vega,vis) => {
     keuze(hoeveelDagen,vega,vis)
-    const gekozen = gekozenVlees.concat(gekozenVis,gerechtenVega)
+    const gekozen = gekozenVlees.concat(gekozenVis,gekozenVega)
+    console.log(gekozen)
     console.log(`Wij eten: ${gekozen.join(' - ')}`)
 }
 
