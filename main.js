@@ -7,9 +7,6 @@ let gerechtenVis = ['Kabeljauw mosterd sojasaus (puur genieten pg 96)','Sesame S
 let gerechtenVega = ['Pasta Pesto','Couscous','Jackfruit stoofschotel','Bieten Burger']
 
 // Gekozen is de uitkomst van de selectie
-let gekozenVlees = []
-let gekozenVis = []
-let gekozenVega = []
 const gekozen = []
 
 // Gehusselde array maken
