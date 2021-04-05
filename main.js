@@ -7,7 +7,7 @@ let gerechtenVis = ['Kabeljauw mosterd sojasaus (puur genieten pg 96)','Sesame S
 let gerechtenVega = ['Pasta Pesto','Couscous','Jackfruit stoofschotel','Bieten Burger']
 
 // Gekozen is de uitkomst van de selectie
-const gekozen = []
+let gekozen = []
 
 // Gehusselde array maken
 const gehusseld = (arr,input) => {
@@ -107,11 +107,19 @@ const vergelijk = (arr) => {
     }
     return false;
 }
+let happy = ''
+const prompt = require('prompt-sync')({sigint: true});
+console.log('')
+const dagen = Number(prompt('Voor hoeveel dagen eten? '));
+const vega = Number(prompt('Hoeveel vegetarisch? '));
+const vis = Number(prompt('Hoevaak vis? '));
 
-const prompt = require('prompt-sync')();
-const dagen = Number(prompt('Voor hoeveel dagen eten?'));
-const vega = Number(prompt('Hoeveel vegetarisch?'));
-const vis = Number(prompt('Hoevaak vis?'));
+do {
+    gekozen = []
 console.log('');
 wijEten(dagen,vega,vis);
 console.log('');
+happy = prompt('Ben je blij met dit resultaat? Ja of Nee: ')
+antwoord = happy.toLowerCase
+} while (happy != 'ja');
+
