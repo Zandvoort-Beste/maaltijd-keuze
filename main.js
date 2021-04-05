@@ -20,7 +20,7 @@ const gehusseld = (arr,input) => {
 function hussel(array)
 {
   for (var i = array.length - 1; i > 0; --i) {
-    var p = Math.floor(Math.random() * (i + 1)),
+    let p = Math.floor(Math.random() * (i + 1)),
     tmp = array[p];
     array[p] = array[i];
     array[i] = tmp;
@@ -105,9 +105,13 @@ const vergelijk = (arr) => {
             }
         }
     }
-    return false
+    return false;
 }
 
-console.log('')
-wijEten(5,2,1)
-console.log('')
+const prompt = require('prompt-sync')();
+const dagen = Number(prompt('Voor hoeveel dagen eten?'));
+const vega = Number(prompt('Hoeveel vegetarisch?'));
+const vis = Number(prompt('Hoevaak vis?'));
+console.log('');
+wijEten(dagen,vega,vis);
+console.log('');
