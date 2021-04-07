@@ -93,7 +93,10 @@ const keuze = (hoeveelDagen,vega,vis) => {
 // Deze functie maakt er een mooi zinnetje van
 const wijEten = (hoeveelDagen,vega,vis) => {
     keuze(hoeveelDagen,vega,vis)
-    console.log(`Wij eten: ${gekozen.join(' - ')}`)
+    for (let i = 0; i < gekozen.length; i++) {
+        console.log(`${i+1}. ${gekozen[i]}`)
+    }
+    //console.log(`Wij eten: ${gekozen.join(' - ')}`)
 }
 
 // Hier wordt gekeken of gerechten niet dubbel zijn, niet meer nodig
