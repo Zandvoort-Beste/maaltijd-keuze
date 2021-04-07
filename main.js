@@ -110,19 +110,19 @@ const vergelijk = (arr) => {
     }
     return false;
 }
+
 let happy = ''
 const prompt = require('prompt-sync')({sigint: true});
-console.log('')
+console.clear()
 const dagen = Number(prompt('Voor hoeveel dagen eten? '));
 const vega = Number(prompt('Hoeveel vegetarisch? '));
 const vis = Number(prompt('Hoevaak vis? '));
 
 do {
-    gekozen = []
+gekozen = []
 console.log('');
 wijEten(dagen,vega,vis);
 console.log('');
 happy = prompt('Ben je blij met dit resultaat? Ja of Nee: ')
 antwoord = happy.toLowerCase
 } while (happy != 'ja');
-
