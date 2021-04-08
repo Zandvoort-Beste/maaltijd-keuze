@@ -96,7 +96,6 @@ const wijEten = (hoeveelDagen,vega,vis) => {
     for (let i = 0; i < gekozen.length; i++) {
         console.log(`${i+1}. ${gekozen[i]}`)
     }
-    //console.log(`Wij eten: ${gekozen.join(' - ')}`)
 }
 
 // Hier wordt gekeken of gerechten niet dubbel zijn, niet meer nodig
