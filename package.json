@@ -1,0 +1,19 @@
+{
+  "name": "maaltijd-kiezer",
+  "version": "1.0.0",
+  "description": "Ontneem de stress in het kiezen van een week menu",
+  "main": "main.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Zandvoort-Beste/maaltijd-keuze.git"
+  },
+  "author": "Bas Roeper",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Zandvoort-Beste/maaltijd-keuze/issues"
+  },
+  "homepage": "https://github.com/Zandvoort-Beste/maaltijd-keuze#readme"
+}

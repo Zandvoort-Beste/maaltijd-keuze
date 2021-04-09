@@ -122,6 +122,5 @@ gekozen = []
 console.log('');
 wijEten(dagen,vega,vis);
 console.log('');
-happy = prompt('Ben je blij met dit resultaat? Ja of Nee: ')
-antwoord = happy.toLowerCase
+happy = prompt('Ben je blij met dit resultaat? Ja of Nee: ').toLowerCase()
 } while (happy != 'ja');
