@@ -36,8 +36,11 @@ const watEtenVis = vis => {
     gehusseld(nummerBij,bijGrechten)
     gehusseld(nummerGerecht,gerechtenVis)
     for (let i = 0; i < vis; i++) {
+        if (nummerHoofd.length == 0 && nummerGerecht.length == 0) {
+            throw 'Niet genoeg gerechten vis gerechten'
+        }
         let totaalOfNiet = Math.floor(Math.random()*2)
-        if (totaalOfNiet == 1) {
+        if (totaalOfNiet == 1 && nummerHoofd.length > 0) {
             let temp = []
             temp.push(hoofdGerechtVis[nummerHoofd.shift()] + ' met')
             temp.push(bijGrechten[nummerBij.shift()])
@@ -45,7 +48,12 @@ const watEtenVis = vis => {
             gekozen.push(outPut)
         } 
         else {
-            gekozen.push(gerechtenVis[nummerGerecht.shift()])
+            if (nummerGerecht.length == 0) {
+                i--
+            }
+            else {
+                gekozen.push(gerechtenVis[nummerGerecht.shift()])
+            }
         }
     }
 }
@@ -59,8 +67,11 @@ const watEtenVlees = (hoeveelDagen,vega,vis) => {
     gehusseld(nummerBij,bijGrechten)
     gehusseld(nummerGerecht,gerechtenVlees)
     for (let i = 0; i < hoeveelDagen - (vega + vis); i++) {
+        if (nummerGerecht.length == 0 && nummerHoofd.length == 0) {
+            throw 'Niet genoeg vlees gerechten'
+        }
         let totaalOfNiet = Math.floor(Math.random()*2)
-        if (totaalOfNiet == 1) {
+        if (totaalOfNiet == 1 && nummerHoofd.length > 0) {
             let temp = []
             temp.push(hoofdGerechtenVlees[nummerHoofd.shift()] + ' met')
             temp.push(bijGrechten[nummerBij.shift()])
@@ -68,7 +79,12 @@ const watEtenVlees = (hoeveelDagen,vega,vis) => {
             gekozen.push(outPut)
         } 
         else {
-            gekozen.push(gerechtenVlees[nummerGerecht.shift()])
+            if (nummerGerecht.length == 0) {
+                i--
+            }
+            else {
+                gekozen.push(gerechtenVlees[nummerGerecht.shift()])
+            }
         }
     }
 }
@@ -78,6 +94,9 @@ const watEtenVega = vega => {
     let nummerGerecht = [];
     gehusseld(nummerGerecht,gerechtenVega);
     for (let i = 0; i < vega; i++) {
+        if (nummerGerecht.length == 0) {
+            throw 'Niet genoeg vega gerechten'
+        }
         gekozen.push(gerechtenVega[nummerGerecht.shift()])
         
     }

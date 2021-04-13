@@ -12,6 +12,7 @@ Ik heb nu de volgende dingen werkende:
 * Code die vergelijkt of ik niet twee keer het zelfde eet, nu in een verfijndere variant
 * Een functie die van de gerechten een mooi zinnetje maakt
 * Functie dit in command line vraagt welke input de functie moet hebben
+* Als je te veel gerechten van een type kiest zul je niet meer "undefined" als optie krijgen en geeft het programma een error
 
 ## Wat zou ik nog willen
 
