@@ -15,5 +15,8 @@
   "bugs": {
     "url": "https://github.com/Zandvoort-Beste/maaltijd-keuze/issues"
   },
-  "homepage": "https://github.com/Zandvoort-Beste/maaltijd-keuze#readme"
+  "homepage": "https://github.com/Zandvoort-Beste/maaltijd-keuze#readme",
+  "dependencies": {
+    "prompt-sync": "^4.2.0"
+  }
 }

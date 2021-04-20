@@ -1,3 +1,6 @@
+const prompt = require('prompt-sync')({sigint: true});
+const nieuwGerecht = require('./nieuw-gerecht')
+
 // Alle mogelijke gerechten
 let gerechtenVlees = ['Nieuw gerecht','Risotto Tijm, Rozemarijn (Italiaanse keuken pg 76)','Thai curry (boek voor mem)','Thom Kha kai (boek voor mem)','Beef Basil (bijbel Thai pg 130)','Nacho’s (Jamie app)','Spanish-style chicken stew (jamie app)','Chicken Phal (Jamie app)',]
 let hoofdGerechtenVlees = ['Gelakte kip (puur genieten pg 46)','Beef met Gember (5 ingrediënten 185)','Gehaktbal met jus',]
@@ -95,13 +98,15 @@ const keuze = (hoeveelDagen,vega,vis) => {
 // Deze functie maakt er een mooi zinnetje van
 const wijEten = (hoeveelDagen,vega,vis) => {
     keuze(hoeveelDagen,vega,vis)
+    if (gekozen.indexOf('Nieuw gerecht') >= 0) {
+        gekozen[gekozen.indexOf('Nieuw gerecht')] = nieuwGerecht() 
+    }
     for (let i = 0; i < gekozen.length; i++) {
         console.log(`${i+1}. ${gekozen[i]}`)
     }
 }
 
 let happy = ''
-const prompt = require('prompt-sync')({sigint: true});
 console.clear()
 const dagen = Number(prompt('Voor hoeveel dagen eten? '));
 const vega = Number(prompt('Hoeveel vegetarisch? '));

@@ -13,6 +13,7 @@ Ik heb nu de volgende dingen werkende:
 * Een functie die van de gerechten een mooi zinnetje maakt
 * Functie dit in command line vraagt welke input de functie moet hebben
 * Als je te veel gerechten van een type kiest zul je niet meer "undefined" als optie krijgen en geeft het programma een error
+* Functie toegevoegd die een nieuw gerecht voor je uitzoekt
 
 ## Wat zou ik nog willen
 

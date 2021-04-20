@@ -28,18 +28,9 @@ const bierEnSpijs = new Boeken('Bier & Spijs',168,30);
 const nogEnvoudiger = new Boeken('Nog eenvoudiger',203,24);
 const alleBoeken = [silverSpoon,simpel,veg,ways,ingredients,chicksLoveFood,thaiseKeuken,minuten,puurGenieten,italiaanseKeuken,bierEnSpijs,nogEnvoudiger];
 
-
-console.clear();
+const nieuwGerecht = () => {
 let randomBoek = Math.floor(Math.random()* alleBoeken.length);
-console.log(`Wij proberen recept op pagina ${alleBoeken[randomBoek].contents} uit ${alleBoeken[randomBoek].name}`);
+return `Wij proberen het recept op pagina ${alleBoeken[randomBoek].contents} uit ${alleBoeken[randomBoek].name}`;
+}
 
-do {
-    antwoord = prompt(`Durven we dit aan? `).toLowerCase();
-    if (antwoord == 'nee') {
-        randomBoek = Math.floor(Math.random()* alleBoeken.length);
-        console.log('');
-        console.log(`Wij proberen recept op pagina ${alleBoeken[randomBoek].contents} uit ${alleBoeken[randomBoek].name}`);
-    }
-} while (antwoord != 'ja');
-console.log('\nEet smakelijk!\n');
-
+module.exports = nieuwGerecht
