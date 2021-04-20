@@ -1,5 +1,5 @@
 // Alle mogelijke gerechten
-let gerechtenVlees = ['Nieuw gerecht','Risotto Tijm, Rosemarijn (Italiaanse keuken pg 76)','Thai curry (boek voor mem)','Thom Kha kai (boek voor mem)','Beef Basil (bijbel Thai pg 130)','Nacho’s (Jamie app)','Spanish-style chicken stew (jamie app)','Chicken Phal (Jamie app)',]
+let gerechtenVlees = ['Nieuw gerecht','Risotto Tijm, Rozemarijn (Italiaanse keuken pg 76)','Thai curry (boek voor mem)','Thom Kha kai (boek voor mem)','Beef Basil (bijbel Thai pg 130)','Nacho’s (Jamie app)','Spanish-style chicken stew (jamie app)','Chicken Phal (Jamie app)',]
 let hoofdGerechtenVlees = ['Gelakte kip (puur genieten pg 46)','Beef met Gember (5 ingrediënten 185)','Gehaktbal met jus',]
 let bijGrechten = ['Spinaziecurry (5 ingrediënten 162)','Zoete aardappel met cajun (5 ingrediënten 175)','Tomaten salade','Gebakken rijst']
 let hoofdGerechtVis = ['Zalm en geitenkaas saladebolletjes','Visragout','Zalm gehaktbal (puur genieten pg 86)','Vis gemalen komijn, paprika en koriander',]
@@ -37,7 +37,7 @@ const watEtenVis = vis => {
     gehusseld(nummerGerecht,gerechtenVis)
     for (let i = 0; i < vis; i++) {
         if (nummerHoofd.length == 0 && nummerGerecht.length == 0) {
-            throw 'Niet genoeg gerechten vis gerechten'
+            throw 'Niet genoeg vis gerechten'
         }
         let totaalOfNiet = Math.floor(Math.random()*2)
         if (totaalOfNiet == 1 && nummerHoofd.length > 0) {
