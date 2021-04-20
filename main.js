@@ -2,12 +2,20 @@ const prompt = require('prompt-sync')({sigint: true});
 const nieuwGerecht = require('./nieuw-gerecht')
 
 // Alle mogelijke gerechten
-let gerechtenVlees = ['Nieuw gerecht','Risotto Tijm, Rozemarijn (Italiaanse keuken pg 76)','Thai curry (boek voor mem)','Thom Kha kai (boek voor mem)','Beef Basil (bijbel Thai pg 130)','Nacho’s (Jamie app)','Spanish-style chicken stew (jamie app)','Chicken Phal (Jamie app)',]
-let hoofdGerechtenVlees = ['Gelakte kip (puur genieten pg 46)','Beef met Gember (5 ingrediënten 185)','Gehaktbal met jus',]
-let bijGrechten = ['Spinaziecurry (5 ingrediënten 162)','Zoete aardappel met cajun (5 ingrediënten 175)','Tomaten salade','Gebakken rijst']
-let hoofdGerechtVis = ['Zalm en geitenkaas saladebolletjes','Visragout','Zalm gehaktbal (puur genieten pg 86)','Vis gemalen komijn, paprika en koriander',]
-let gerechtenVis = ['Kabeljauw mosterd sojasaus (puur genieten pg 96)','Sesame Seared Tuna & Sushi Bar Spinach']
-let gerechtenVega = ['Pasta Pesto','Couscous','Jackfruit stoofschotel','Tomatensoep hello fresh','Parel Couscous salade hello fresh']
+let _gerechtenVlees = ['Nieuw gerecht','Risotto Tijm, Rozemarijn (Italiaanse keuken pg 76)','Thai curry (boek voor mem)','Thom Kha kai (boek voor mem)','Beef Basil (bijbel Thai pg 130)','Nacho’s (Jamie app)','Spanish-style chicken stew (jamie app)','Chicken Phal (Jamie app)',]
+let _hoofdGerechtenVlees = ['Gelakte kip (puur genieten pg 46)','Beef met Gember (5 ingrediënten 185)','Gehaktbal met jus',]
+let _bijGrechten = ['Spinaziecurry (5 ingrediënten 162)','Zoete aardappel met cajun (5 ingrediënten 175)','Tomaten salade','Gebakken rijst']
+let _hoofdGerechtVis = ['Zalm en geitenkaas saladebolletjes','Visragout','Zalm gehaktbal (puur genieten pg 86)','Vis gemalen komijn, paprika en koriander',]
+let _gerechtenVis = ['Kabeljauw mosterd sojasaus (puur genieten pg 96)','Sesame Seared Tuna & Sushi Bar Spinach']
+let _gerechtenVega = ['Pasta Pesto','Couscous','Jackfruit stoofschotel','Tomatensoep hello fresh','Parel Couscous salade hello fresh']
+
+// Array van gerechten waar ik mee werk
+let gerechtenVlees = []
+let hoofdGerechtenVlees = []
+let bijGrechten = []
+let hoofdGerechtVis = []
+let gerechtenVis = []
+let gerechtenVega = []
 
 // Gekozen is de uitkomst van de selectie
 let gekozen = []
@@ -114,6 +122,14 @@ const vis = Number(prompt('Hoevaak vis? '));
 
 do {
 gekozen = []
+console.log(gerechtenVlees)
+gerechtenVlees = _gerechtenVlees.map(x => x)
+hoofdGerechtenVlees = _hoofdGerechtenVlees.map(x => x)
+bijGrechten = _bijGrechten.map(x => x)
+hoofdGerechtVis = _hoofdGerechtVis.map(x => x)
+gerechtenVis = _gerechtenVis.map(x => x)
+gerechtenVega = _gerechtenVega.map(x => x)
+console.log(gerechtenVlees)
 console.log('');
 wijEten(dagen,vega,vis);
 console.log('');
