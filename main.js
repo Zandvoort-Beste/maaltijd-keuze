@@ -9,18 +9,10 @@ let gerechtenVega = ['Pasta Pesto','Couscous','Jackfruit stoofschotel','Tomatens
 // Gekozen is de uitkomst van de selectie
 let gekozen = []
 
-// Gehusselde array maken
-const gehusseld = (arr,input) => {
-    let y = -1
-    input.forEach(i => arr.push(y += 1))
-    hussel(arr)
-}
-
 // Hier hussel ik een array
-function hussel(array)
-{
-  for (var i = array.length - 1; i > 0; --i) {
-    let p = Math.floor(Math.random() * (i + 1)),
+const hussel = array => {
+  for (let i = array.length - 1; i > 0; --i) {
+    let p = Math.floor(Math.random() * (i + 1));
     tmp = array[p];
     array[p] = array[i];
     array[i] = tmp;
@@ -29,30 +21,26 @@ function hussel(array)
 
 // Dit kiest vis gerechten
 const watEtenVis = vis => {
-    let nummerHoofd = []
-    let nummerBij = []
-    let nummerGerecht = []
-    gehusseld(nummerHoofd,hoofdGerechtVis)
-    gehusseld(nummerBij,bijGrechten)
-    gehusseld(nummerGerecht,gerechtenVis)
     for (let i = 0; i < vis; i++) {
-        if (nummerHoofd.length == 0 && nummerGerecht.length == 0) {
+        if (hoofdGerechtVis.length == 0 && gerechtenVis.length == 0) {
             throw 'Niet genoeg vis gerechten'
         }
+        hussel(hoofdGerechtVis)
+        hussel(gerechtenVis)
+        hussel(bijGrechten)
         let totaalOfNiet = Math.floor(Math.random()*2)
-        if (totaalOfNiet == 1 && nummerHoofd.length > 0) {
+        if (totaalOfNiet == 1 && hoofdGerechtVis.length > 0) {
             let temp = []
-            temp.push(hoofdGerechtVis[nummerHoofd.shift()] + ' met')
-            temp.push(bijGrechten[nummerBij.shift()])
-            let outPut = temp.join(' ')
-            gekozen.push(outPut)
+            temp.push(hoofdGerechtVis.pop() + ' met')
+            temp.push(bijGrechten.pop())
+            gekozen.push(temp.join(' '))
         } 
         else {
-            if (nummerGerecht.length == 0) {
+            if (gerechtenVis.length == 0) {
                 i--
             }
             else {
-                gekozen.push(gerechtenVis[nummerGerecht.shift()])
+                gekozen.push(gerechtenVis.pop())
             }
         }
     }
@@ -60,30 +48,26 @@ const watEtenVis = vis => {
 
 // Dit kiest vlees gerechten
 const watEtenVlees = (hoeveelDagen,vega,vis) => {
-    let nummerHoofd = []
-    let nummerBij = []
-    let nummerGerecht = []
-    gehusseld(nummerHoofd,hoofdGerechtenVlees)
-    gehusseld(nummerBij,bijGrechten)
-    gehusseld(nummerGerecht,gerechtenVlees)
+    hussel(gerechtenVlees);
+    hussel(hoofdGerechtenVlees);
+    hussel(bijGrechten);
     for (let i = 0; i < hoeveelDagen - (vega + vis); i++) {
-        if (nummerGerecht.length == 0 && nummerHoofd.length == 0) {
-            throw 'Niet genoeg vlees gerechten'
+        if (hoofdGerechtenVlees.length == 0 && gerechtenVlees.length == 0) {
+            throw 'Niet genoeg vlees gerechten';
         }
-        let totaalOfNiet = Math.floor(Math.random()*2)
-        if (totaalOfNiet == 1 && nummerHoofd.length > 0) {
-            let temp = []
-            temp.push(hoofdGerechtenVlees[nummerHoofd.shift()] + ' met')
-            temp.push(bijGrechten[nummerBij.shift()])
-            let outPut = temp.join(' ')
-            gekozen.push(outPut)
+        let totaalOfNiet = Math.floor(Math.random()*2);
+        if (totaalOfNiet == 1 && hoofdGerechtenVlees.length > 0) {
+            let temp = [];
+            temp.push(hoofdGerechtenVlees.pop() + ' met');
+            temp.push(bijGrechten.pop());
+            gekozen.push(temp.join(' '));
         } 
         else {
-            if (nummerGerecht.length == 0) {
-                i--
+            if (gerechtenVlees.length == 0) {
+                i--;
             }
             else {
-                gekozen.push(gerechtenVlees[nummerGerecht.shift()])
+                gekozen.push(gerechtenVlees.pop());
             }
         }
     }
@@ -91,13 +75,12 @@ const watEtenVlees = (hoeveelDagen,vega,vis) => {
 
 // Dit kiest vega gerechten
 const watEtenVega = vega => {
-    let nummerGerecht = [];
-    gehusseld(nummerGerecht,gerechtenVega);
+    hussel(gerechtenVega)
     for (let i = 0; i < vega; i++) {
-        if (nummerGerecht.length == 0) {
-            throw 'Niet genoeg vega gerechten'
+        if (gerechtenVega.length == 0) {
+            throw 'Niet genoeg Vega gerechten'
         }
-        gekozen.push(gerechtenVega[nummerGerecht.shift()])
+        gekozen.push(gerechtenVega.pop())
         
     }
 }
@@ -115,18 +98,6 @@ const wijEten = (hoeveelDagen,vega,vis) => {
     for (let i = 0; i < gekozen.length; i++) {
         console.log(`${i+1}. ${gekozen[i]}`)
     }
-}
-
-// Hier wordt gekeken of gerechten niet dubbel zijn, niet meer nodig
-const vergelijk = (arr) => {
-    for (let i = 0; i < arr.length; i++) {
-        for (let y = i + 1; y < arr.length; y++) {
-            if (arr[i] == arr[y]) {
-                return true
-            }
-        }
-    }
-    return false;
 }
 
 let happy = ''
