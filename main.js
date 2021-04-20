@@ -122,14 +122,12 @@ const vis = Number(prompt('Hoevaak vis? '));
 
 do {
 gekozen = []
-console.log(gerechtenVlees)
 gerechtenVlees = _gerechtenVlees.map(x => x)
 hoofdGerechtenVlees = _hoofdGerechtenVlees.map(x => x)
 bijGrechten = _bijGrechten.map(x => x)
 hoofdGerechtVis = _hoofdGerechtVis.map(x => x)
 gerechtenVis = _gerechtenVis.map(x => x)
 gerechtenVega = _gerechtenVega.map(x => x)
-console.log(gerechtenVlees)
 console.log('');
 wijEten(dagen,vega,vis);
 console.log('');
