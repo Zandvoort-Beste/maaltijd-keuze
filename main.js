@@ -5,9 +5,9 @@ const nieuwGerecht = require('./nieuw-gerecht');
 let _gerechtenVlees = ['Nieuw gerecht','Risotto Tijm, Rozemarijn (Italiaanse keuken pg 76)','Thai curry (boek voor mem)','Thom Kha kai (boek voor mem)','Beef Basil (bijbel Thai pg 130)','Nacho’s (Jamie app)','Spanish-style chicken stew (jamie app)','Chicken Phal (Jamie app)',];
 let _hoofdGerechtenVlees = ['Gelakte kip (puur genieten pg 46)','Beef met Gember (5 ingrediënten 185)','Gehaktbal met jus',];
 let _bijGrechten = ['Spinaziecurry (5 ingrediënten 162)','Zoete aardappel met cajun (5 ingrediënten 175)','Tomaten salade','Gebakken rijst'];
-let _hoofdGerechtVis = ['Zalm en geitenkaas saladebolletjes','Visragout','Zalm gehaktbal (puur genieten pg 86)','Vis gemalen komijn, paprika en koriander',];
+let _hoofdGerechtenVis = ['Zalm en geitenkaas saladebolletjes','Visragout','Zalm gehaktbal (puur genieten pg 86)','Vis gemalen komijn, paprika en koriander',];
 let _gerechtenVis = ['Kabeljauw mosterd sojasaus (puur genieten pg 96)','Sesame Seared Tuna & Sushi Bar Spinach'];
-let _gerechtenVega = ['Pasta Pesto','Couscous','Jackfruit stoofschotel','Tomatensoep hello fresh','Parel Couscous salade hello fresh'];
+let _gerechtenVega = ['Pasta Pesto','Couscous','Jackfruit stoofschotel','Tomatensoep hello fresh','Parel Couscous salade hello fresh','Romige risotto en broccoli Jamie 7 ways'];
 
 // Array van gerechten waar ik mee werk
 let gerechtenVlees = [];
@@ -114,18 +114,30 @@ const wijEten = (hoeveelDagen,vega,vis) => {
     }
 }
 
-let happy = ''
-console.clear()
-const dagen = Number(prompt('Voor hoeveel dagen eten? '));
-const vega = Number(prompt('Hoeveel vegetarisch? '));
-const vis = Number(prompt('Hoevaak vis? '));
+let happy = '';
+console.clear();
+let dagen = Number(prompt('Voor hoeveel dagen eten? '));
+let vega = Number(prompt('Hoeveel vegetarisch? '));
+let vis = Number(prompt('Hoevaak vis? '));
+if (dagen-vega-vis > _gerechtenVlees.length + _hoofdGerechtenVlees.length) {
+    console.log(`Maximaal vlees gerechten overschreden, max is ${_gerechtenVlees.length + _hoofdGerechtenVlees.length} gerechten`);
+    dagen = Number(prompt('Voor hoeveel dagen eten? '));
+};
+if (vega > _gerechtenVega.length) {
+    console.log(`Maximaal vega gerechten overschreden, max is ${_gerechtenVega.length} gerechten`);
+    vega = Number(prompt('Hoeveel vegetarisch? '));
+};
+if (vis > _hoofdGerechtenVis.length + _gerechtenVis.length) {
+    console.log(`Maximaal vis gerechten overschreden, max is ${_gerechtenVis.length + _hoofdGerechtenVis.length} gerechten`);
+    vis = Number(prompt('Hoevaak vis? '));
+};
 
 do {
 gekozen = [];
 gerechtenVlees = _gerechtenVlees.map(x => x);
 hoofdGerechtenVlees = _hoofdGerechtenVlees.map(x => x);
 bijGrechten = _bijGrechten.map(x => x);
-hoofdGerechtVis = _hoofdGerechtVis.map(x => x);
+hoofdGerechtVis = _hoofdGerechtenVis.map(x => x);
 gerechtenVis = _gerechtenVis.map(x => x);
 gerechtenVega = _gerechtenVega.map(x => x);
 console.log('');
