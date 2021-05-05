@@ -144,7 +144,8 @@ console.log('');
 happy = prompt('Ben je blij met dit resultaat? Ja, Nee of getal van gerecht te vervangen: ').toLowerCase();
 console.log('')
 if (happy != 'ja') {
-    if (happy != NaN) {
+    let getallen = ['1','2','3','4','5','6','7','8','9','10']
+    if (getallen.includes(happy)) {
         gekozen[happy - 1] = gerechtenVega[0];
         print(gekozen)
         console.log('');
