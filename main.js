@@ -14,21 +14,21 @@ let gerechtenVega = [];
 let gekozen = [];
 
 // Dit is de .pop(index) functie
-const pyPop = (arr, index) => {
-    let result = arr[index]
-    arr.splice(index, 1)
+const pyPop = (array, index) => {
+    let result = array[index]
+    array.splice(index, 1)
     return result
 }
 
 // Random nummer generator naar beneden afgerond
-const randomLow = num => {
-    return Math.floor(Math.random() * num)
+const randomLow = arrayLength => {
+    return Math.floor(Math.random() * arrayLength)
 }
 
 //Hier print ik de inhoud van een array
-const print = arr => {
-    for (let i = 0; i < arr.length; i++) {
-        console.log(`${i+1}. ${arr[i]}`);
+const print = array => {
+    for (let i = 0; i < array.length; i++) {
+        console.log(`${i+1}. ${array[i]}`);
     }
 }
 
@@ -108,6 +108,7 @@ const wijEten = (hoeveelDagen,vega,vis) => {
 
 let happy = '';
 console.clear();
+console.log('Dit is de develop branch \n')
 let dagen = Number(prompt('Voor hoeveel dagen eten? '));
 let vega = Number(prompt('Hoeveel vegetarisch? '));
 let vis = Number(prompt('Hoevaak vis? '));
@@ -142,7 +143,7 @@ console.log('')
 if (happy != 'ja') {
     let getallen = ['1','2','3','4','5','6','7','8','9','10']
     if (getallen.includes(happy)) {
-        gekozen[happy - 1] = gerechtenVega[0];
+        gekozen[happy - 1] = pyPop(gerechtenVega, randomLow(gerechtenVega.length))
         print(gekozen)
         console.log('');
         happy = prompt('Ben je blij met dit resultaat? Ja of Nee: ').toLowerCase();
