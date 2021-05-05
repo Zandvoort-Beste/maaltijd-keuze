@@ -30,6 +30,13 @@ const hussel = array => {
   }
 }
 
+//Hier print ik de inhoud van een array
+const print = arr => {
+    for (let i = 0; i < arr.length; i++) {
+        console.log(`${i+1}. ${arr[i]}`);
+    }
+}
+
 // Dit kiest vis gerechten
 const watEtenVis = vis => {
     for (let i = 0; i < vis; i++) {
@@ -109,9 +116,7 @@ const wijEten = (hoeveelDagen,vega,vis) => {
     if (gekozen.indexOf('Nieuw gerecht') >= 0) {
         gekozen[gekozen.indexOf('Nieuw gerecht')] = nieuwGerecht();
     }
-    for (let i = 0; i < gekozen.length; i++) {
-        console.log(`${i+1}. ${gekozen[i]}`);
-    }
+    print(gekozen)
 }
 
 let happy = '';
@@ -144,14 +149,11 @@ console.log('');
 wijEten(dagen,vega,vis);
 console.log('');
 happy = prompt('Ben je blij met dit resultaat? Ja, Nee of getal van gerecht te vervangen: ').toLowerCase();
+console.log('')
 if (happy != 'ja') {
-    const getallen = ['1','2','3','4','5','6','7','8','9','10'];
-    if (getallen.includes(happy)) {
-        Number(happy);
+    if (happy != NaN) {
         gekozen[happy - 1] = gerechtenVega[0];
-        for (let i = 0; i < gekozen.length; i++) {
-            console.log(`${i+1}. ${gekozen[i]}`);
-        }
+        print(gekozen)
         console.log('');
         happy = prompt('Ben je blij met dit resultaat? Ja of Nee: ').toLowerCase();
     }
