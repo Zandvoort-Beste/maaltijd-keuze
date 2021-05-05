@@ -108,10 +108,11 @@ const wijEten = (hoeveelDagen,vega,vis) => {
 
 let happy = '';
 console.clear();
-console.log('Dit is de develop brach \n')
 let dagen = Number(prompt('Voor hoeveel dagen eten? '));
 let vega = Number(prompt('Hoeveel vegetarisch? '));
 let vis = Number(prompt('Hoevaak vis? '));
+
+// Dit stuk controleerd of ik niet te weinig gerechten in de database heb
 if (dagen - vega - vis > _gerechtenVlees.length + _hoofdGerechtenVlees.length) {
     console.log(`Maximaal vlees gerechten overschreden, max is ${_gerechtenVlees.length + _hoofdGerechtenVlees.length} gerechten`);
     dagen = Number(prompt('Voor hoeveel dagen eten? '));
