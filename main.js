@@ -13,14 +13,16 @@ let gerechtenVega = [];
 // Gekozen is de uitkomst van de selectie
 let gekozen = [];
 
-// Hier hussel ik een array
-const hussel = array => {
-  for (let i = array.length - 1; i > 0; --i) {
-    let p = Math.floor(Math.random() * (i + 1));
-    tmp = array[p];
-    array[p] = array[i];
-    array[i] = tmp;
-  }
+// Dit is de .pop(index) functie
+const pyPop = (arr, index) => {
+    let result = arr[index]
+    arr.splice(index, 1)
+    return result
+}
+
+// Random nummer generator naar beneden afgerond
+const randomLow = num => {
+    return Math.floor(Math.random() * num)
 }
 
 //Hier print ik de inhoud van een array
@@ -36,14 +38,11 @@ const watEtenVis = vis => {
         if (hoofdGerechtVis.length == 0 && gerechtenVis.length == 0) {
             throw 'Niet genoeg vis gerechten';
         }
-        hussel(hoofdGerechtVis);
-        hussel(gerechtenVis);
-        hussel(bijGrechten);
         let totaalOfNiet = Math.floor(Math.random()*2);
         if (totaalOfNiet == 1 && hoofdGerechtVis.length > 0) {
             let temp = [];
-            temp.push(hoofdGerechtVis.pop() + ' met');
-            temp.push(bijGrechten.pop());
+            temp.push(pyPop(hoofdGerechtVis, randomLow(hoofdGerechtVis.length)) + ' met');
+            temp.push(pyPop(bijGrechten, randomLow(bijGrechten.length)));
             gekozen.push(temp.join(' '));
         } 
         else {
@@ -51,7 +50,7 @@ const watEtenVis = vis => {
                 i--;
             }
             else {
-                gekozen.push(gerechtenVis.pop());
+                gekozen.push(pyPop(gerechtenVis, randomLow(gerechtenVis.length)));
             }
         }
     }
@@ -59,9 +58,6 @@ const watEtenVis = vis => {
 
 // Dit kiest vlees gerechten
 const watEtenVlees = (hoeveelDagen,vega,vis) => {
-    hussel(gerechtenVlees);
-    hussel(hoofdGerechtenVlees);
-    hussel(bijGrechten);
     for (let i = 0; i < hoeveelDagen - (vega + vis); i++) {
         if (hoofdGerechtenVlees.length == 0 && gerechtenVlees.length == 0) {
             throw 'Niet genoeg vlees gerechten';
@@ -69,8 +65,8 @@ const watEtenVlees = (hoeveelDagen,vega,vis) => {
         let totaalOfNiet = Math.floor(Math.random()*2);
         if (totaalOfNiet == 1 && hoofdGerechtenVlees.length > 0) {
             let temp = [];
-            temp.push(hoofdGerechtenVlees.pop() + ' met');
-            temp.push(bijGrechten.pop());
+            temp.push(pyPop(hoofdGerechtenVlees, randomLow(hoofdGerechtenVlees.length)) + ' met');
+            temp.push(pyPop(bijGrechten, randomLow(bijGrechten.length)));
             gekozen.push(temp.join(' '));
         } 
         else {
@@ -78,7 +74,7 @@ const watEtenVlees = (hoeveelDagen,vega,vis) => {
                 i--;
             }
             else {
-                gekozen.push(gerechtenVlees.pop());
+                gekozen.push(pyPop(gerechtenVlees, randomLow(gerechtenVlees.length)));
             }
         }
     }
@@ -86,13 +82,11 @@ const watEtenVlees = (hoeveelDagen,vega,vis) => {
 
 // Dit kiest vega gerechten
 const watEtenVega = vega => {
-    hussel(gerechtenVega)
     for (let i = 0; i < vega; i++) {
         if (gerechtenVega.length == 0) {
             throw 'Niet genoeg Vega gerechten';
         }
-        gekozen.push(gerechtenVega.pop());
-        
+        gekozen.push(pyPop(gerechtenVega, randomLow(gerechtenVega.length)));
     }
 }
 
