@@ -108,7 +108,6 @@ const wijEten = (hoeveelDagen,vega,vis) => {
 
 let happy = '';
 console.clear();
-console.log('Dit is de develop branch \n')
 let dagen = Number(prompt('Voor hoeveel dagen eten? '));
 let vega = Number(prompt('Hoeveel vegetarisch? '));
 let vis = Number(prompt('Hoevaak vis? '));
