@@ -4,7 +4,7 @@ let _hoofdGerechtenVlees = ['Gelakte kip (puur genieten pg 46)','Beef met Gember
 let _bijGrechten = ['Spinaziecurry (5 ingrediënten 162)','Zoete aardappel met cajun (5 ingrediënten 175)','Tomaten salade','Gebakken rijst'];
 let _hoofdGerechtenVis = ['Zalm en geitenkaas saladebolletjes','Visragout','Zalm gehaktbal (puur genieten pg 86)','Vis gemalen komijn, paprika en koriander',];
 let _gerechtenVis = ['Kabeljauw mosterd sojasaus (puur genieten pg 96)','Sesame Seared Tuna & Sushi Bar Spinach'];
-let _gerechtenVega = ['Fettuccine met pirrige cherrytomatensaus, Simpel pg. 187','Parpapardelle met rozenharissa, Simpel pg. 188','Aardbei Risotto','Pasta Pesto','Couscous','Jackfruit stoofschotel','Tomatensoep hello fresh','Parel Couscous salade hello fresh','Romige risotto en broccoli Jamie 7 ways'];
+let _gerechtenVega = ['Fettuccine met pittige cherry tomatensaus, Simpel pg. 187','Parpapardelle met rozenharissa, Simpel pg. 188','Aardbei Risotto','Pasta Pesto','Couscous notitie ios','Jackfruit stoofschotel','Tomatensoep hello fresh','Parel Couscous salade hello fresh','Romige risotto en broccoli Jamie 7 ways'];
 
 module.exports = {
     _bijGrechten,
