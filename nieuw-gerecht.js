@@ -32,5 +32,5 @@ const nieuwGerecht = () => {
 let randomBoek = Math.floor(Math.random()* alleBoeken.length);
 return `Wij proberen het recept op pagina ${alleBoeken[randomBoek].contents} uit ${alleBoeken[randomBoek].name}`;
 }
-console.log(nieuwGerecht())
+
 module.exports = nieuwGerecht
