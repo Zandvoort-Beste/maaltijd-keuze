@@ -49,9 +49,12 @@ const zalmGehakt = new Gerechten('Gehakt van zalm met kruiden en wasabimoyanaise
 const gelakteKip = new Gerechten('Gelakte kip met boontjes',2,true,false,'vlees',['2 kipfilets','Balsamicoazijn','Sojasaus'],'Puur genieten pg. 46')
 const zoeteAardappel = new Gerechten('Zoete Aardappel met Cajun',4,false,false,'bijGerecht',['4 zoete aardappels van 250g elk','1 bol knoflook','1 tl cajunkruiden','200ml Griekse yoghurt','4 lente-uitjes'],'5 ingredienten pg. 174')
 const spinazieCurry = new Gerechten('Speedy Spinaziecurry',2,false,false,'bijGerecht',['20g ongezouten cashewnoten','1 ui','2tl rogan josh-currypasta','100g feta','200g jonge spinazie'],'5 ingredienten pg. 162')
+const kabeljauwKomijnPaprika = new Gerechten('Kabeljauw met Komijn en Parika',undefined,true,false,'vis',['Kabeljauw','Komijn poeder','Paprika poeder','Koriander'])
+const ZalmGeitenkaas = new Gerechten('Zalm met geitenkaas saladebolletjes',undefined,true,false,'vis',['Zalm filet','Geitenkaas saladebolletjes','Italiaanse kruiden'],'https://www.geitenkaas.nl/recepten/zalmpapillot-met-geitenkaas-saladebolletjes')
+const visragout = new Gerechten('Visragout',4,true,false,'vis',['500g kabelfauwfilet','50g boter','60g bloem','viskruiden','1 visbouillion tablet','200g creme fraiche','peterselie','ragoutbakjes','bieslook'],'https://www.geitenkaas.nl/recepten/zalmpapillot-met-geitenkaas-saladebolletjes')
+const aardbeiRisotto = new Gerechten('Aardbeid Risotto',2,false,false,'vega',['Risotto','Ui','Witte Wijn','Groente Bouillon','10 Aardbeiden','Boter','Parmezaanse kaas','Balsamico azijn','Munt'],'Notitie in iOS')
 
-
-let _gerechten = [pastaPesto,beefBasil,jackFruit,couscous,nacho,fettuccine,kabeljauwMosterd,zalmGehakt,gelakteKip,zoeteAardappel,spinazieCurry]
+let _gerechten = [pastaPesto,beefBasil,jackFruit,couscous,nacho,fettuccine,kabeljauwMosterd,zalmGehakt,gelakteKip,zoeteAardappel,spinazieCurry,kabeljauwKomijnPaprika,ZalmGeitenkaas,visragout,aardbeiRisotto]
 
 
 // Alle bijgerechten

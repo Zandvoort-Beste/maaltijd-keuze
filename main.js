@@ -8,9 +8,9 @@ let bijGerechten = [];
 
 // Mijn befaamde pyPop functie!
 const pyPop = (array, index) => {
-    let result = array[index]
-    array.splice(index, 1)
-    return result
+    let result = array[index];
+    array.splice(index, 1);
+    return result;
 }
 
 // Dit maakt kiest een willekeurig nummer op basis van de array lengte
@@ -20,10 +20,10 @@ const randomLaag = array => {
 
 // Hier worden alle gerechten in catagorie gesorteerd
 const sorteren = (gerechtenArray) => {
-    vleesGerechten = []
-    visGerechten = []
-    vegaGerechten = []
-    bijGerechten = []
+    vleesGerechten = [];
+    visGerechten = [];
+    vegaGerechten = [];
+    bijGerechten = [];
     for (let i = 0; i < gerechtenArray.length; i++) {
         switch (gerechtenArray[i]._type) {
             case 'vlees':
@@ -36,10 +36,10 @@ const sorteren = (gerechtenArray) => {
                 vegaGerechten.push(gerechtenArray[i]);
                 break;
             case 'bijGerecht':
-                bijGerechten.push(gerechtenArray[i])
+                bijGerechten.push(gerechtenArray[i]);
                 break;
             default:
-                throw 'Sorten is mislukt'
+                throw 'Sorten is mislukt';
         }
         
     }
@@ -57,6 +57,9 @@ let gekozen = [];
 // Hier kies ik de gerechten
 const watEten = (type,hoeveel) => {
     for (let i = 0; i < hoeveel; i++) {
+        if (type.length == 0) {
+            throw 'Niet genoeg gerechten';
+        }
         let random = randomLaag(type);
         gekozen.push(pyPop(type, random));
     }
@@ -64,8 +67,8 @@ const watEten = (type,hoeveel) => {
 
 // Dit stuurt de functies aan
 const aansturen = (vis,vlees,vega) => {
-    sorteren(_gerechten)
-    gekozen = []
+    sorteren(_gerechten);
+    gekozen = [];
     watEten(vegaGerechten,vega);
     watEten(visGerechten,vis);
     watEten(vleesGerechten,vlees);
@@ -95,4 +98,3 @@ do {
         boodschappen(gekozen);
     }
 } while (happy != 'ja');
-
