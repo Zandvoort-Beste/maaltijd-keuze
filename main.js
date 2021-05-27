@@ -6,17 +6,19 @@ let visGerechten = [];
 let vegaGerechten = [];
 let bijGerechten = [_gerechten[9]];
 
-
+// Mijn befaamde pyPop functie!
 const pyPop = (array, index) => {
     let result = array[index]
     array.splice(index, 1)
     return result
 }
 
+// Dit maakt kiest een willekeurig nummer op basis van de array lengte
 const randomLaag = array => {
     return Math.floor(Math.random() * array.length);
 }
 
+// Hier worden alle gerechten in catagorie gesorteerd
 const sorteren = (gerechtenArray) => {
     vleesGerechten = []
     visGerechten = []
@@ -43,6 +45,7 @@ const sorteren = (gerechtenArray) => {
     }
 }
 
+// Als een gerecht een bijgerecht nodig heeft wordt dat hier geregeld
 const bijGerechtToevoegen = (gerecht) => {
     let random = Math.floor(Math.random() * bijGerechten.length);
     gerecht._bijGerecht = bijGerechten[random];
@@ -59,6 +62,7 @@ const watEten = (type,hoeveel) => {
     }
 }
 
+// Dit stuurt de functies aan
 const aansturen = (vis,vlees,vega) => {
     sorteren(_gerechten)
     gekozen = []
@@ -67,6 +71,7 @@ const aansturen = (vis,vlees,vega) => {
     watEten(vleesGerechten,vlees);
 }
 
+// Dit is om de boodschappen te tonen
 const boodschappen = array  => {
     console.log('\n Deze boodschappen zijn nodig: \n');
     for (let i = 0; i < array.length; i++) {
