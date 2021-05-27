@@ -38,7 +38,6 @@ const sorteren = (gerechtenArray) => {
                 break;
             default:
                 throw 'Sorten is mislukt'
-                break;
         }
         
     }
