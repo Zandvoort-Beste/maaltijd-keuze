@@ -1,9 +1,11 @@
 const prompt = require('prompt-sync')({sigint: true});
 const nieuwGerecht = require('./nieuw-gerecht');
 const {_gerechten} = require('./gerechten');
-let vleesGerechten = []
-let visGerechten = []
-let vegaGerechten = []
+let vleesGerechten = [];
+let visGerechten = [];
+let vegaGerechten = [];
+let bijGerechten = [_gerechten[9]];
+
 
 const pyPop = (array, index) => {
     let result = array[index]
@@ -19,6 +21,7 @@ const sorteren = (gerechtenArray) => {
     vleesGerechten = []
     visGerechten = []
     vegaGerechten = []
+    bijGerechten = []
     for (let i = 0; i < gerechtenArray.length; i++) {
         switch (gerechtenArray[i]._type) {
             case 'vlees':
@@ -30,12 +33,20 @@ const sorteren = (gerechtenArray) => {
             case 'vega':
                 vegaGerechten.push(gerechtenArray[i]);
                 break;
+            case 'bijGerecht':
+                bijGerechten.push(gerechtenArray[i])
+                break;
             default:
                 throw 'Sorten is mislukt'
                 break;
         }
         
     }
+}
+
+const bijGerechtToevoegen = (gerecht) => {
+    let random = Math.floor(Math.random() * bijGerechten.length);
+    gerecht._bijGerecht = bijGerechten[random];
 }
 
 // Gekozen is de uitkomst van de selectie
@@ -68,12 +79,13 @@ const boodschappen = array  => {
 
 console.clear()
 //let hoevaak = prompt('Hoe vaak vega? ');
-let happy = ''
+let happy = '';
 do {
-    aansturen(1,1,1)
+    aansturen(0,4,0);
+    console.log(gekozen)
 for (let i = 0; i < gekozen.length; i++) {
     if (gekozen[i]._bijGerechtReq) {
-        gekozen[i].bijGerecht;
+        bijGerechtToevoegen(gekozen[i]);
     }
     console.log(`${i+1}: ${gekozen[i].naam}`);
 }
