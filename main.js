@@ -4,7 +4,7 @@ const {_gerechten} = require('./gerechten');
 let vleesGerechten = [];
 let visGerechten = [];
 let vegaGerechten = [];
-let bijGerechten = [_gerechten[9]];
+let bijGerechten = [];
 
 // Mijn befaamde pyPop functie!
 const pyPop = (array, index) => {
