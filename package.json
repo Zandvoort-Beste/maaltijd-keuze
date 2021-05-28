@@ -1,7 +1,7 @@
 {
-  "name": "maaltijd-kiezer",
+  "name": "wat-eten-wij",
   "version": "1.0.0",
-  "description": "Ontneem de stress in het kiezen van een week menu",
+  "description": "Maak de weekmaaltijd keuze makkelijk",
   "main": "main.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
@@ -16,7 +16,7 @@
     "url": "https://github.com/Zandvoort-Beste/maaltijd-keuze/issues"
   },
   "homepage": "https://github.com/Zandvoort-Beste/maaltijd-keuze#readme",
-  "dependencies": {
+  "devDependencies": {
     "prompt-sync": "^4.2.0"
   }
 }

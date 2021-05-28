@@ -58,7 +58,7 @@ let gekozen = [];
 const watEten = (type,hoeveel) => {
     for (let i = 0; i < hoeveel; i++) {
         if (type.length == 0) {
-            throw 'Niet genoeg gerechten';
+            throw `Niet genoeg gerechten`;
         }
         let random = randomLaag(type);
         gekozen.push(pyPop(type, random));
@@ -66,7 +66,7 @@ const watEten = (type,hoeveel) => {
 }
 
 // Dit stuurt de functies aan
-const aansturen = (vis,vlees,vega) => {
+const aansturen = (vlees,vis,vega) => {
     sorteren(_gerechten);
     gekozen = [];
     watEten(vegaGerechten,vega);
@@ -83,18 +83,34 @@ const boodschappen = array  => {
     }
 }
 
-console.clear()
 let happy = '';
+console.clear();
+let dagen = Number(prompt('Voor hoeveel dagen eten? '));
+let vega = Number(prompt('Hoeveel vegetarisch? '));
+let vis = Number(prompt('Hoevaak vis? '));
+let nieuwProberen = prompt('Nieuw gerecht proberen? ').toLowerCase()
+if (nieuwProberen == 'ja') {
+    dagen -= 1
+}
+let vlees = dagen - vega - vis;
+if (dagen < vega + vis) {
+    throw 'Kut Suus en Juul!';
+}
+
 do {
-    aansturen(2,2,2);
+    aansturen(vlees,vis,vega);
+    console.log('')
     for (let i = 0; i < gekozen.length; i++) {
         if (gekozen[i]._bijGerechtReq) {
         bijGerechtToevoegen(gekozen[i]);
         }
         console.log(`${i+1}: ${gekozen[i].naam}`);
     }
-    happy = prompt('Blij met die resultaat? ').toLowerCase();
-    if (happy == "ja") {
+    if (nieuwProberen == 'ja') {
+        console.log(nieuwGerecht());
+    }
+    happy = prompt('Blij met dit resultaat? ').toLowerCase();
+    if (happy == 'ja') {
         boodschappen(gekozen);
     }
 } while (happy != 'ja');

@@ -68,10 +68,6 @@ const parelcouscousSalade = new Gerechten('Linzen-parelcouscoussalade',2,false,f
 
 let _gerechten = [pastaPesto,beefBasil,jackFruit,couscous,nacho,fettuccine,kabeljauwMosterd,zalmGehakt,gelakteKip,zoeteAardappel,spinazieCurry,kabeljauwKomijnPaprika,ZalmGeitenkaas,visragout,aardbeiRisotto,rodeCurry,tomKhaKai,rodeCurryVega,tomKhaKaiVega,gebakkenRijst,tomatenSalade,gemberBeef,risottoWorst,broccoliRisotto,pappardelleRozenharissa,tomatenSoep,parelcouscousSalade]
 
-
-// Alle bijgerechten
-
-
 module.exports = {
     _gerechten
 }
