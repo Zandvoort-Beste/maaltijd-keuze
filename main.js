@@ -85,7 +85,15 @@ const boodschappen = array  => {
 
 let happy = '';
 console.clear();
-let dagen = Number(prompt('Voor hoeveel dagen eten? '));
+let dagen = prompt('Voor hoeveel dagen eten? ');
+if (dagen == 'hoeveel') {
+    sorteren(_gerechten);
+    console.log(`${vleesGerechten.length} vlees gerechten`);
+    console.log(`${vegaGerechten.length} vega gerechten`);
+    console.log(`${visGerechten.length} vis gerechten`);
+    dagen = prompt('Voor hoeveel dagen eten? ');
+}
+dagen = Number(dagen)
 let vega = Number(prompt('Hoeveel vegetarisch? '));
 let vis = Number(prompt('Hoevaak vis? '));
 let nieuwProberen = prompt('Nieuw gerecht proberen? ').toLowerCase()
