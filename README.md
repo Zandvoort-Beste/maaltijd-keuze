@@ -1,4 +1,4 @@
-# Gerechten kiezer
+# Mijn Maaltijd
 
 Het idee achter dit project is een programma maken waar je kunt invullen voor hoeveel dagen je gerechten wilt kiezen en hoeveel hiervan vis en vegetarisch moet zijn.
 
@@ -9,11 +9,9 @@ Ik heb nu de volgende dingen werkende:
 * De database van gerecht
 * De kiezer input
 * De code die vervolgens die juist hoeveelheid gerechten uit de database haalt
-* Code die vergelijkt of ik niet twee keer het zelfde eet, nu in een verfijndere variant
 * Een functie die van de gerechten een mooi zinnetje maakt
-* Functie dit in command line vraagt welke input de functie moet hebben
 * Als je te veel gerechten van een type kiest zul je niet meer "undefined" als optie krijgen en geeft het programma een error
-* Functie toegevoegd die een nieuw gerecht voor je uitzoekt
+* De code draait nu op objecten
 
 ## Wat zou ik nog willen
 
