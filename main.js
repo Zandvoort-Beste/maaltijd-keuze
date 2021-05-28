@@ -128,7 +128,6 @@ do {
     if (!isNaN(happy)) {
         let welke = happy - 1
         let type = gekozen[welke]._type
-        console.log(type)
         switch (type) {
             case 'vlees':
                 gekozen[welke] = vleesGerechten[0]
@@ -142,13 +141,15 @@ do {
             default:
                 break;
         }
-    }
-    for (let i = 0; i < gekozen.length; i++) {
-        if (gekozen[i]._bijGerechtReq) {
-        bijGerechtToevoegen(gekozen[i]);
+        for (let i = 0; i < gekozen.length; i++) {
+            if (gekozen[i]._bijGerechtReq) {
+            bijGerechtToevoegen(gekozen[i]);
+            }
+            console.log(`${i+1}: ${gekozen[i].naam}`);
         }
-        console.log(`${i+1}: ${gekozen[i].naam}`);
+        happy = prompt('Blij met dit resultaat? ').toLowerCase();
     }
-    happy = prompt('Blij met dit resultaat? ').toLowerCase();
+    
+    
 } while (happy != 'ja');
 boodschappen(gekozen)
