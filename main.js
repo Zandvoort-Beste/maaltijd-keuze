@@ -118,7 +118,37 @@ do {
         console.log(nieuwGerecht());
     }
     happy = prompt('Blij met dit resultaat? ').toLowerCase();
-    if (happy == 'ja') {
-        boodschappen(gekozen);
+    if (happy !== 'ja' && happy !== 'nee' && isNaN(happy)) {
+        happy = prompt('Antwoord moet Ja, Nee of het nummer van het gerecht dat vervangen moet worden: ')
+        console.log('')
     }
+    if (happy !== 'ja' && happy !== 'nee' && isNaN(happy)) {
+        throw 'Kut Suus en Juul!'
+    }
+    if (!isNaN(happy)) {
+        let welke = happy - 1
+        let type = gekozen[welke]._type
+        console.log(type)
+        switch (type) {
+            case 'vlees':
+                gekozen[welke] = vleesGerechten[0]
+                break;
+            case 'vis':
+                gekozen[welke] = visGerechten[0]
+                break;
+            case 'vega':
+                gekozen[welke] = vegaGerechten[0]
+                break;       
+            default:
+                break;
+        }
+    }
+    for (let i = 0; i < gekozen.length; i++) {
+        if (gekozen[i]._bijGerechtReq) {
+        bijGerechtToevoegen(gekozen[i]);
+        }
+        console.log(`${i+1}: ${gekozen[i].naam}`);
+    }
+    happy = prompt('Blij met dit resultaat? ').toLowerCase();
 } while (happy != 'ja');
+boodschappen(gekozen)
