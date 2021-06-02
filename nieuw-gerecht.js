@@ -1,16 +1,17 @@
 const prompt = require('prompt-sync')({sigint: true});
 let antwoord = ''
 class Boeken {
-    constructor (name,pages,intro) {
-        this._name = name;
+    constructor (naam,pages,intro) {
+        this._naam = naam;
         this._pages = pages;
         this._intro = intro;
+        this._type = 'nieuwGerecht'
     }
     get contents () {
         return this._intro + Math.floor(Math.random()*(this._pages-this._intro));
     }
-    get name () {
-        return this._name;
+    get naam () {
+        return this._naam;
     }
 }
 
@@ -30,7 +31,7 @@ const alleBoeken = [silverSpoon,simpel,veg,ways,ingredients,chicksLoveFood,thais
 
 const nieuwGerecht = () => {
 let randomBoek = Math.floor(Math.random()* alleBoeken.length);
-return `Wij proberen het recept op pagina ${alleBoeken[randomBoek].contents} uit ${alleBoeken[randomBoek].name}`;
+return alleBoeken[randomBoek]
 }
 
 module.exports = nieuwGerecht

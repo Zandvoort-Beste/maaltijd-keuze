@@ -107,15 +107,18 @@ if (dagen < vega + vis) {
 
 do {
     aansturen(vlees,vis,vega);
+    let newBook = nieuwGerecht()
     console.log('')
-    for (let i = 0; i < gekozen.length; i++) {
-        if (gekozen[i]._bijGerechtReq) {
-        bijGerechtToevoegen(gekozen[i]);
+    let print
+    for (print = 0; print < gekozen.length; print++) {
+        if (gekozen[print]._bijGerechtReq) {
+        bijGerechtToevoegen(gekozen[print]);
         }
-        console.log(`${i+1}: ${gekozen[i].naam}`);
+        console.log(`${print + 1}: ${gekozen[print].naam}`);
     }
     if (nieuwProberen == 'ja') {
-        console.log(nieuwGerecht());
+        gekozen.push(newBook)
+        console.log(`${print + 1}: Wij proberen het recept op pagina ${newBook.contents} uit ${newBook.naam}`);
     }
     happy = prompt('Blij met dit resultaat? ').toLowerCase();
     if (happy !== 'ja' && happy !== 'nee' && isNaN(happy)) {
@@ -127,29 +130,31 @@ do {
     }
     if (!isNaN(happy)) {
         let welke = happy - 1
-        let type = gekozen[welke]._type
+            let type = gekozen[welke]._type
         switch (type) {
             case 'vlees':
-                gekozen[welke] = vleesGerechten[0]
+                gekozen[welke] = vleesGerechten[0];
                 break;
             case 'vis':
-                gekozen[welke] = visGerechten[0]
+                gekozen[welke] = visGerechten[0];
                 break;
             case 'vega':
-                gekozen[welke] = vegaGerechten[0]
+                gekozen[welke] = vegaGerechten[0];
                 break;       
             default:
+                gekozen[welke] = nieuwGerecht();
                 break;
         }
         for (let i = 0; i < gekozen.length; i++) {
             if (gekozen[i]._bijGerechtReq) {
             bijGerechtToevoegen(gekozen[i]);
             }
-            console.log(`${i+1}: ${gekozen[i].naam}`);
+            console.log(`${i+1}: Wij proberen het recept op pagina ${gekozen[i].contents} uit ${gekozen[i].naam}`);
         }
+        console.log(`${i+1}: Wij proberen het recept op pagina ${gekozen[i].contents} uit ${gekozen[i].naam}`);
         happy = prompt('Blij met dit resultaat? ').toLowerCase();
     }
-    
-    
 } while (happy != 'ja');
 boodschappen(gekozen)
+
+//`Wij proberen het recept op pagina ${alleBoeken[randomBoek].contents} uit ${alleBoeken[randomBoek].name}
