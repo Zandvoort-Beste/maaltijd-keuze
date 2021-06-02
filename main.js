@@ -96,14 +96,15 @@ if (dagen == 'hoeveel') {
 dagen = Number(dagen)
 let vega = Number(prompt('Hoeveel vegetarisch? '));
 let vis = Number(prompt('Hoevaak vis? '));
+if (dagen < vega + vis) {
+    throw 'Kut Suus en Juul!';
+}
 let nieuwProberen = prompt('Nieuw gerecht proberen? ').toLowerCase()
 if (nieuwProberen == 'ja') {
     dagen -= 1
 }
 let vlees = dagen - vega - vis;
-if (dagen < vega + vis) {
-    throw 'Kut Suus en Juul!';
-}
+
 
 do {
     aansturen(vlees,vis,vega);
@@ -118,7 +119,7 @@ do {
     }
     if (nieuwProberen == 'ja') {
         gekozen.push(newBook)
-        console.log(`${print + 1}: ${newBook.naam}`);
+        console.log(`${print + 1}: ${gekozen[gekozen.length - 1].naam}`);
     }
     happy = prompt('Blij met dit resultaat? ').toLowerCase();
     if (happy !== 'ja' && happy !== 'nee' && isNaN(happy)) {
