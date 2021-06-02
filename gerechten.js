@@ -39,7 +39,7 @@ const bijGerechten = require('./main')
 // Alle mogelijke hoofd gerechten
 
 const pastaPesto = new Gerechten('Pasta pesto',undefined,false,false,'vlees',['Pasta','Pesto','Rucola','Pijnboom pitten','Parmezaanse kaas','Kip','Cherry tomaten','Knoflook'])
-const beefBasil = new Gerechten('Beef Basil',2,false,false,'vlees',['300g gehakt','2 el vissaus','2 el sojasaus','1tl suiker','Basilicum','Verse rode pepers'],'Thai keuken bijbel')
+const beefBasil = new Gerechten('Beef Basil',2,false,false,'vlees',['300g gehakt','2 el vissaus','2 el sojasaus','1tl suiker','Basilicum','Verse rode pepers','Rijst','Kokosmelk'],'Thai keuken bijbel')
 const jackFruit = new Gerechten('Jackfruit Stoofschotel',4,false,false,'vega',['1 blik jackfruit 500 ml','2 teentjes knoflook fijngehakt','1 ui in ringen','1 winterwortel in blokjes','2 stengels bleekselderij in blokjes','1 laurierblad','2 kruidnagels','1 tl korianderpoeder','1 tl gemberpoeder','0,5 tl nootmuskaatpoeder','1 tl mosterd','40 gram ontbijtkoek','1 el bloem','70 gram tomatenpuree','350 ml groentebouillon','Zonnebloemolie','Peper en zout'],'https://miljuschka.nl/jackfruitstoofschotel/')
 const couscous = new Gerechten('Couscous',undefined,false,false,'vlees',['Worst','Bouillon', 'Rozijnen', 'Feta', 'Pijnboompitten', 'Knoflook', 'Zongedroode Tomaat', 'Rucola', 'Honing'],'Notitie iOS')
 const nacho = new Gerechten('Nacho',2,false,false,'vlees',['300 gram gehakt',"Nacho's",'1 Rode ui','2 tenen knoflook','2 stengels Bleekselderij','1/2 bunch Koriander','Tijm','Tomaten Pure','2 Jalapeno chillies','2 Limoenen','Gemalen komijn','75g geraspte kaas','Zure room','Olijf olie'],'Jamie Recipes App')
