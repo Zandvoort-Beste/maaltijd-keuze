@@ -13,6 +13,9 @@ class Boeken {
     get naam () {
         return `Wij proberen het recept op pagina ${this.contents} uit ${this._naam}`;
     }
+    get ingredients () {
+        console.log('Van het nieuwe gerecht moeten we de ingredienten opzoeken')
+    }
 }
 
 const silverSpoon = new Boeken('The Silver Spoon',354,68);

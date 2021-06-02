@@ -91,7 +91,7 @@ const boodschappen = array  => {
 const gekozenPrint = () => {
     let print
     for (print = 0; print < gekozen.length; print++) {
-        if (gekozen[print]._bijGerechtReq) {
+        if (gekozen[print]._bijGerechtReq && gekozen[print]._bijGerecht == undefined) {
         bijGerechtToevoegen(gekozen[print]);
         }
         console.log(`${print + 1}: ${gekozen[print].naam}`);
