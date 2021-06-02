@@ -72,6 +72,10 @@ const aansturen = (vlees,vis,vega) => {
     watEten(vegaGerechten,vega);
     watEten(visGerechten,vis);
     watEten(vleesGerechten,vlees);
+    if (nieuwProberen == 'ja') {
+        gekozen.push(nieuwGerecht());
+    }
+    
 }
 
 // Dit is om de boodschappen te tonen
@@ -81,6 +85,37 @@ const boodschappen = array  => {
         array[i].ingredients;
         console.log('');
     }
+}
+
+// Hier print ik de inhoud van gekozen op de console
+const gekozenPrint = () => {
+    let print
+    for (print = 0; print < gekozen.length; print++) {
+        if (gekozen[print]._bijGerechtReq) {
+        bijGerechtToevoegen(gekozen[print]);
+        }
+        console.log(`${print + 1}: ${gekozen[print].naam}`);
+    }
+}
+
+// Hier zoek ik uit welk gerecht er vervangen moet worden
+const vervangen = () => {
+    let welke = happy - 1
+            let type = gekozen[welke]._type
+        switch (type) {
+            case 'vlees':
+                gekozen[welke] = pyPop(vleesGerechten, 0);
+                break;
+            case 'vis':
+                gekozen[welke] = pyPop(visGerechten, 0);
+                break;
+            case 'vega':
+                gekozen[welke] = pyPop(vegaGerechten, 0);
+                break;       
+            default:
+                gekozen[welke] = nieuwGerecht();
+                break;
+        }
 }
 
 let happy = '';
@@ -105,22 +140,10 @@ if (nieuwProberen == 'ja') {
 }
 let vlees = dagen - vega - vis;
 
-
 do {
     aansturen(vlees,vis,vega);
-    let newBook = nieuwGerecht()
     console.log('')
-    let print
-    for (print = 0; print < gekozen.length; print++) {
-        if (gekozen[print]._bijGerechtReq) {
-        bijGerechtToevoegen(gekozen[print]);
-        }
-        console.log(`${print + 1}: ${gekozen[print].naam}`);
-    }
-    if (nieuwProberen == 'ja') {
-        gekozen.push(newBook)
-        console.log(`${print + 1}: ${gekozen[gekozen.length - 1].naam}`);
-    }
+    gekozenPrint()
     happy = prompt('Blij met dit resultaat? ').toLowerCase();
     if (happy !== 'ja' && happy !== 'nee' && isNaN(happy)) {
         happy = prompt('Antwoord moet Ja, Nee of het nummer van het gerecht dat vervangen moet worden: ')
@@ -129,29 +152,10 @@ do {
     if (happy !== 'ja' && happy !== 'nee' && isNaN(happy)) {
         throw 'Kut Suus en Juul!'
     }
-    if (!isNaN(happy)) {
-        let welke = happy - 1
-            let type = gekozen[welke]._type
-        switch (type) {
-            case 'vlees':
-                gekozen[welke] = vleesGerechten[0];
-                break;
-            case 'vis':
-                gekozen[welke] = visGerechten[0];
-                break;
-            case 'vega':
-                gekozen[welke] = vegaGerechten[0];
-                break;       
-            default:
-                gekozen[welke] = nieuwGerecht();
-                break;
-        }
-        for (let i = 0; i < gekozen.length; i++) {
-            if (gekozen[i]._bijGerechtReq) {
-            bijGerechtToevoegen(gekozen[i]);
-            }
-            console.log(`${i+1}: ${gekozen[i].naam}`);
-        }
+    while (!isNaN(happy)) {
+        console.log('')
+        vervangen()
+        gekozenPrint()
         happy = prompt('Blij met dit resultaat? ').toLowerCase();
     }
 } while (happy != 'ja');
