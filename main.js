@@ -118,7 +118,7 @@ do {
     }
     if (nieuwProberen == 'ja') {
         gekozen.push(newBook)
-        console.log(`${print + 1}: Wij proberen het recept op pagina ${newBook.contents} uit ${newBook.naam}`);
+        console.log(`${print + 1}: ${newBook.naam}`);
     }
     happy = prompt('Blij met dit resultaat? ').toLowerCase();
     if (happy !== 'ja' && happy !== 'nee' && isNaN(happy)) {
@@ -149,12 +149,9 @@ do {
             if (gekozen[i]._bijGerechtReq) {
             bijGerechtToevoegen(gekozen[i]);
             }
-            console.log(`${i+1}: Wij proberen het recept op pagina ${gekozen[i].contents} uit ${gekozen[i].naam}`);
+            console.log(`${i+1}: ${gekozen[i].naam}`);
         }
-        console.log(`${i+1}: Wij proberen het recept op pagina ${gekozen[i].contents} uit ${gekozen[i].naam}`);
         happy = prompt('Blij met dit resultaat? ').toLowerCase();
     }
 } while (happy != 'ja');
 boodschappen(gekozen)
-
-//`Wij proberen het recept op pagina ${alleBoeken[randomBoek].contents} uit ${alleBoeken[randomBoek].name}

@@ -11,7 +11,7 @@ class Boeken {
         return this._intro + Math.floor(Math.random()*(this._pages-this._intro));
     }
     get naam () {
-        return this._naam;
+        return `Wij proberen het recept op pagina ${this.contents} uit ${this._naam}`;
     }
 }
 
