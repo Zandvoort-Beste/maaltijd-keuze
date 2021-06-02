@@ -118,6 +118,17 @@ const vervangen = () => {
         }
 }
 
+// Hier check is of Suus en Juul kut zijn
+const kutSuusJuul = () => {
+    if (happy !== 'ja' && happy !== 'nee' && isNaN(happy)) {
+        happy = prompt('Antwoord moet Ja, Nee of het nummer van het gerecht dat vervangen moet worden: ')
+        console.log('')
+    }
+    if (happy !== 'ja' && happy !== 'nee' && isNaN(happy)) {
+        throw 'Kut Suus en Juul!'
+    }
+}
+
 let happy = '';
 console.clear();
 let dagen = prompt('Voor hoeveel dagen eten? ');
@@ -145,18 +156,13 @@ do {
     console.log('')
     gekozenPrint()
     happy = prompt('Blij met dit resultaat? ').toLowerCase();
-    if (happy !== 'ja' && happy !== 'nee' && isNaN(happy)) {
-        happy = prompt('Antwoord moet Ja, Nee of het nummer van het gerecht dat vervangen moet worden: ')
-        console.log('')
-    }
-    if (happy !== 'ja' && happy !== 'nee' && isNaN(happy)) {
-        throw 'Kut Suus en Juul!'
-    }
+    kutSuusJuul()
     while (!isNaN(happy)) {
         console.log('')
         vervangen()
         gekozenPrint()
         happy = prompt('Blij met dit resultaat? ').toLowerCase();
+        kutSuusJuul()
     }
 } while (happy != 'ja');
 boodschappen(gekozen)
