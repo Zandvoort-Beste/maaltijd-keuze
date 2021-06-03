@@ -19,7 +19,7 @@ const randomLaag = array => {
 }
 
 // Hier worden alle gerechten in catagorie gesorteerd
-const sorteren = (gerechtenArray) => {
+const sorteren = gerechtenArray => {
     vleesGerechten = [];
     visGerechten = [];
     vegaGerechten = [];
@@ -46,7 +46,7 @@ const sorteren = (gerechtenArray) => {
 }
 
 // Als een gerecht een bijgerecht nodig heeft wordt dat hier geregeld
-const bijGerechtToevoegen = (gerecht) => {
+const bijGerechtToevoegen = gerecht => {
     let random = Math.floor(Math.random() * bijGerechten.length);
     gerecht._bijGerecht = bijGerechten[random];
 }
