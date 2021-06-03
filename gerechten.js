@@ -65,8 +65,10 @@ const broccoliRisotto = new Gerechten('Creamy Broccoli Risotto',4,false,false,'v
 const pappardelleRozenharissa = new Gerechten('Pappardelle met rozenharissa',4,false,false,'vega',['2 el olijfolie','1 ui','3 el rozenharissa','400g cherrytomaatjes','60g ontpitte kalamataolijven','20g fijne kappertjes','15g peterselie','500g pappardelle','120 griekse yoghurt'],'Simpel pg. 188')
 const tomatenSoep = new Gerechten('Tomaat-paprikasoep met parelcouscous',2,false,false,'vega',['1 ui','2 knoflooktenen','4 tomaten','1 parika','50g abrikozen stukjes (of rozijnen)','5g verse dragon','60g parelcouscous','1 ciabatta','50g zure room','25g geraspte italiaanse kaas','1 groente boeillon blokje'],'Hello fresh')
 const parelcouscousSalade = new Gerechten('Linzen-parelcouscoussalade',2,false,false,'vega',['80g parelcouscous','1/2 pak linzen','1 rode ui','1 limoen','10g walnootstukjes','1 appel','2 gekookte rode bieten','5g verse dille','Yoghurt','Tahine','40g sla','75g verse geitenkaas','Groentebouillon','1 el honing','2 el zwarte balsamicoazijn','2 el extra vierge olijfolie'],'Hello fresh')
+const gehaktBal = new Gerechten('Gehakt Bal',2,ture,false,'vlees',['300g gehakt','1/2 ui','1 ei','Gehakt kruiden','Cracker','Wat we nog meer willen'])
+const chickenPhal = new Gerechten('Fiendish Chicken Phal',4,false,false,'vlees',['4 kippedijen','3 el rogan josh curry paste','2 gedroogde pepers','1 grote rode ui','1 paprika','1 kaneel stok','1/3 blok kip bouillon','1/2 el azijn','1/2 tl suiker','75g yoghurt','10g boter'],'Jamie Recipes App')
 
-let _gerechten = [pastaPesto,beefBasil,jackFruit,couscous,nacho,fettuccine,kabeljauwMosterd,zalmGehakt,gelakteKip,zoeteAardappel,spinazieCurry,kabeljauwKomijnPaprika,ZalmGeitenkaas,visragout,aardbeiRisotto,rodeCurry,tomKhaKai,rodeCurryVega,tomKhaKaiVega,gebakkenRijst,tomatenSalade,gemberBeef,risottoWorst,broccoliRisotto,pappardelleRozenharissa,tomatenSoep,parelcouscousSalade]
+let _gerechten = [pastaPesto,beefBasil,jackFruit,couscous,nacho,fettuccine,kabeljauwMosterd,zalmGehakt,gelakteKip,zoeteAardappel,spinazieCurry,kabeljauwKomijnPaprika,ZalmGeitenkaas,visragout,aardbeiRisotto,rodeCurry,tomKhaKai,rodeCurryVega,tomKhaKaiVega,gebakkenRijst,tomatenSalade,gemberBeef,risottoWorst,broccoliRisotto,pappardelleRozenharissa,tomatenSoep,parelcouscousSalade,gehaktBal,chickenPhal]
 
 module.exports = {
     _gerechten
