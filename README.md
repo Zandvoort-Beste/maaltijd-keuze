@@ -11,11 +11,8 @@ Ik heb nu de volgende dingen werkende:
 * De code die vervolgens die juist hoeveelheid gerechten uit de database haalt
 * Als je te veel gerechten van een type kiest zul je niet meer "undefined" als optie krijgen maar geeft het programma een error
 * De code draait nu op objecten
-<<<<<<< HEAD
 * Je kan nu vaker een recept wijzigen
-=======
 * Code is nu veel meer Suus en Juul proof
->>>>>>> develop
 
 ## Wat zou ik nog willen
 
