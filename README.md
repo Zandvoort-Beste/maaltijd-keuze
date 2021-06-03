@@ -12,6 +12,7 @@ Ik heb nu de volgende dingen werkende:
 * Een functie die van de gerechten een mooi zinnetje maakt
 * Als je te veel gerechten van een type kiest zul je niet meer "undefined" als optie krijgen en geeft het programma een error
 * De code draait nu op objecten
+* Je kan nu vaker een recept wijzigen
 
 ## Wat zou ik nog willen
 
