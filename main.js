@@ -47,8 +47,11 @@ const sorteren = gerechtenArray => {
 
 // Als een gerecht een bijgerecht nodig heeft wordt dat hier geregeld
 const bijGerechtToevoegen = gerecht => {
+    if (bijGerechten.length == 0) {
+        throw 'Niet genoeg bijgerechten'
+    }
     let random = Math.floor(Math.random() * bijGerechten.length);
-    gerecht._bijGerecht = bijGerechten[random];
+    gerecht._bijGerecht = pyPop(bijGerechten, random);
 }
 
 // Gekozen is de uitkomst van de selectie
@@ -100,6 +103,9 @@ const gekozenPrint = () => {
 
 // Hier zoek ik uit welk gerecht er vervangen moet worden
 const vervangen = () => {
+    if (vleesGerechten.length == 0 || visGerechten.length == 0 || vegaGerechten.length == 0 || bijGerechten.length == 0) {
+        throw 'Niet genoeg gerechten in deze catagorie om te vervangen'
+    }
     let welke = happy - 1
             let random
             let type = gekozen[welke]._type
