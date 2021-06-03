@@ -101,16 +101,20 @@ const gekozenPrint = () => {
 // Hier zoek ik uit welk gerecht er vervangen moet worden
 const vervangen = () => {
     let welke = happy - 1
+            let random
             let type = gekozen[welke]._type
         switch (type) {
             case 'vlees':
-                gekozen[welke] = pyPop(vleesGerechten, 0);
+                random = randomLaag(vleesGerechten)
+                gekozen[welke] = pyPop(vleesGerechten, random);
                 break;
             case 'vis':
-                gekozen[welke] = pyPop(visGerechten, 0);
+                random = randomLaag(visGerechten)
+                gekozen[welke] = pyPop(visGerechten, random);
                 break;
             case 'vega':
-                gekozen[welke] = pyPop(vegaGerechten, 0);
+                random = randomLaag(vegaGerechten)
+                gekozen[welke] = pyPop(vegaGerechten, random);
                 break;       
             default:
                 gekozen[welke] = nieuwGerecht();
@@ -127,6 +131,12 @@ const kutSuusJuul = () => {
     if (happy !== 'ja' && happy !== 'nee' && isNaN(happy)) {
         throw 'Kut Suus en Juul!'
     }
+    if (happy > gekozen.length) {
+        happy = prompt(`Niet bestaand gerecht, kies een getal onder de ${gekozen.length}: `);
+    }
+    if (happy > gekozen.length) {
+        throw 'Kut Suus en Juul!';
+    }
 }
 
 let happy = '';
@@ -139,30 +149,30 @@ if (dagen == 'hoeveel') {
     console.log(`${visGerechten.length} vis gerechten`);
     dagen = prompt('Voor hoeveel dagen eten? ');
 }
-dagen = Number(dagen)
+dagen = Number(dagen);
 let vega = Number(prompt('Hoeveel vegetarisch? '));
 let vis = Number(prompt('Hoevaak vis? '));
 if (dagen < vega + vis) {
     throw 'Kut Suus en Juul!';
 }
-let nieuwProberen = prompt('Nieuw gerecht proberen? ').toLowerCase()
+let nieuwProberen = prompt('Nieuw gerecht proberen? ').toLowerCase();
 if (nieuwProberen == 'ja') {
-    dagen -= 1
+    dagen -= 1;
 }
 let vlees = dagen - vega - vis;
 
 do {
     aansturen(vlees,vis,vega);
-    console.log('')
-    gekozenPrint()
+    console.log('');
+    gekozenPrint();
     happy = prompt('Blij met dit resultaat? ').toLowerCase();
-    kutSuusJuul()
+    kutSuusJuul();
     while (!isNaN(happy)) {
-        console.log('')
-        vervangen()
-        gekozenPrint()
+        console.log('');
+        vervangen();
+        gekozenPrint();
         happy = prompt('Blij met dit resultaat? ').toLowerCase();
-        kutSuusJuul()
+        kutSuusJuul();
     }
 } while (happy != 'ja');
-boodschappen(gekozen)
+boodschappen(gekozen);
