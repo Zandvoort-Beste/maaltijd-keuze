@@ -5,6 +5,7 @@ let vleesGerechten = [];
 let visGerechten = [];
 let vegaGerechten = [];
 let bijGerechten = [];
+let kiesGerecht = [];
 
 // Mijn befaamde pyPop functie!
 const pyPop = (array, index) => {
@@ -78,7 +79,9 @@ const aansturen = (vlees,vis,vega) => {
     if (nieuwProberen == 'ja') {
         gekozen.push(nieuwGerecht());
     }
-    
+    if (kiezen == 'ja') {
+        gekozen.push(kiesGerecht[0]);
+    }
 }
 
 // Dit is om de boodschappen te tonen
@@ -108,8 +111,7 @@ const vervangen = () => {
     }
     let welke = happy - 1
             let random
-            let type = gekozen[welke]._type
-        switch (type) {
+        switch (gekozen[welke]._type) {
             case 'vlees':
                 random = randomLaag(vleesGerechten)
                 gekozen[welke] = pyPop(vleesGerechten, random);
@@ -145,6 +147,39 @@ const kutSuusJuul = () => {
     }
 }
 
+// Hier kun je een specifiek gerecht kiezen
+const kies = () => {
+    console.clear();
+    for (const i in _gerechten) {
+        console.log(`${Number(i) + 1}: ${_gerechten[i].alleGerechten}`);
+    }
+    console.log('');
+    let kiezen = prompt(`Welk gerecht moet erbij zitten? `) - 1;
+    switch (_gerechten[kiezen]._type) {
+        case 'vlees':
+            if (vlees == 0) {
+                kies();
+            }
+            vlees -= 1;
+            break;
+        case 'vis':
+            if (vis == 0) {
+                kies();
+            }
+            vis -= 1;
+            break;
+        case 'vega':
+            if (vega == 0) {
+                kies();
+            }
+            vega -= 1;
+            break;
+        default:
+            throw 'Een bijgerecht kan niet op deze manier gekozen worden'
+    }
+    kiesGerecht.push(pyPop(_gerechten, kiezen));
+}
+
 let happy = '';
 console.clear();
 let dagen = prompt('Voor hoeveel dagen eten? ');
@@ -163,10 +198,14 @@ if (dagen < vega + vis) {
     throw 'Kut Suus en Juul!';
 }
 let nieuwProberen = prompt('Nieuw gerecht proberen? ').toLowerCase();
+let kiezen = prompt('Wil je een gerecht kiezen? ').toLowerCase();
 if (nieuwProberen == 'ja') {
     dagen -= 1;
 }
 let vlees = dagen - vega - vis;
+if (kiezen == 'ja') {
+    kies()
+}
 
 do {
     aansturen(vlees,vis,vega);

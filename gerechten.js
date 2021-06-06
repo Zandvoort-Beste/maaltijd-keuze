@@ -26,6 +26,13 @@ class Gerechten {
             }
         }
     }
+    get alleGerechten () {
+        if (this._type == 'bijGerecht') {
+            return `Bijgerechten kunnen niet gekozen worden`
+        } else {
+            return `${this._name} uit ${this._source}`;
+            }
+    }
     get naam () {
         if (this._bijGerechtReq == false) {
             return `${this._name} uit ${this._source}`;
@@ -52,7 +59,7 @@ const spinazieCurry = new Gerechten('Speedy Spinaziecurry',2,false,false,'bijGer
 const kabeljauwKomijnPaprika = new Gerechten('Kabeljauw met Komijn en Parika',undefined,true,false,'vis',['Kabeljauw','Komijn poeder','Paprika poeder','Koriander'])
 const ZalmGeitenkaas = new Gerechten('Zalm met geitenkaas saladebolletjes',undefined,true,false,'vis',['Zalm filet','Geitenkaas saladebolletjes','Italiaanse kruiden'],'https://www.geitenkaas.nl/recepten/zalmpapillot-met-geitenkaas-saladebolletjes')
 const visragout = new Gerechten('Visragout',4,true,false,'vis',['500g kabelfauwfilet','50g boter','60g bloem','viskruiden','1 visbouillion tablet','200g creme fraiche','peterselie','ragoutbakjes','bieslook'],'https://www.geitenkaas.nl/recepten/zalmpapillot-met-geitenkaas-saladebolletjes')
-const aardbeiRisotto = new Gerechten('Aardbeid Risotto',2,false,false,'vega',['Risotto','Ui','Witte Wijn','Groente Bouillon','10 Aardbeiden','Boter','Parmezaanse kaas','Balsamico azijn','Munt'],'Notitie in iOS')
+const aardbeiRisotto = new Gerechten('Aardbeid Risotto',2,false,false,'vega',['Risotto','Ui','Witte Wijn','Groente Bouillon','20 Aardbeien','Boter','Parmezaanse kaas','Balsamico azijn','Munt'],'Notitie in iOS')
 const rodeCurry = new Gerechten('Thaise rode curry',2,false,false,'vlees',['140 gram kipfilet','2 el red curry paste','2 cups kokosmelk','2 spaanse pepers','2 cups basilicum','4 kaffir lime leaves','2 el vissaus','2 tl suiker','Broccoli','Paprika','Wortel'],'Somphong cooking guide')
 const tomKhaKai = new Gerechten('Tom Kha Kai',2,false,false,'vlees',['140 gram kip','1 cup kokos melk','2 cups bouillon','16 slices galangal','10 slices lemongrass','4 karrif lime leaves','2 el lime juice','2 el vissaus','1 tl suiker','2 el koriander'],'Somphong cooking guide')
 const rodeCurryVega = new Gerechten('Thaise rode curry Vega',2,false,false,'vega',['Broccoli','Paprika','Wortel','2 el red curry paste','2 cups kokosmelk','2 spaanse pepers','2 cups basilicum','4 kaffir lime leaves','2 el vissaus','2 tl suiker'],'Somphong cooking guide')
