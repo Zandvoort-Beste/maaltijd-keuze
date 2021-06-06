@@ -5,6 +5,7 @@ let vleesGerechten = [];
 let visGerechten = [];
 let vegaGerechten = [];
 let bijGerechten = [];
+let kiesGerecht = [];
 
 // Mijn befaamde pyPop functie!
 const pyPop = (array, index) => {
@@ -68,14 +69,15 @@ const watEten = (type,hoeveel) => {
 // Dit stuurt de functies aan
 const aansturen = (vlees,vis,vega) => {
     sorteren(_gerechten);
-    gekozen = [];
     watEten(vegaGerechten,vega);
     watEten(visGerechten,vis);
     watEten(vleesGerechten,vlees);
     if (nieuwProberen == 'ja') {
         gekozen.push(nieuwGerecht());
     }
-    
+    if (kiezen == 'ja') {
+        gekozen.push(kiesGerecht[0]);
+    }
 }
 
 // Dit is om de boodschappen te tonen
@@ -139,6 +141,17 @@ const kutSuusJuul = () => {
     }
 }
 
+// Hier kun je een specifiek gerecht kiezen
+const kies = () => {
+    console.clear();
+    for (const i in _gerechten) {
+        console.log(`${Number(i) + 1}: ${_gerechten[i].alleGerechten}`);
+    }
+    console.log('');
+    let kiezen = prompt(`Welk gerecht moet erbij zitten? `) - 1;
+    kiesGerecht.push(pyPop(_gerechten, kiezen));
+}
+
 let happy = '';
 console.clear();
 let dagen = prompt('Voor hoeveel dagen eten? ');
@@ -156,8 +169,14 @@ if (dagen < vega + vis) {
     throw 'Kut Suus en Juul!';
 }
 let nieuwProberen = prompt('Nieuw gerecht proberen? ').toLowerCase();
-if (nieuwProberen == 'ja') {
+let kiezen = prompt('Wil je een gerecht kiezen? ').toLowerCase();
+if (nieuwProberen == 'ja' && kiezen == 'ja') {
     dagen -= 1;
+} else if (nieuwProberen == 'ja' || kiezen == 'ja') {
+    dagen -= 1;
+}
+if (kiezen == 'ja') {
+    kies()
 }
 let vlees = dagen - vega - vis;
 

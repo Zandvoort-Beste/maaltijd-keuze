@@ -26,6 +26,9 @@ class Gerechten {
             }
         }
     }
+    get alleGerechten () {
+        return `${this._name} uit ${this._source}`;
+    }
     get naam () {
         if (this._bijGerechtReq == false) {
             return `${this._name} uit ${this._source}`;
