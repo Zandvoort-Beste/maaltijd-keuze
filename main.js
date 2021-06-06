@@ -149,30 +149,29 @@ const kies = () => {
     }
     console.log('');
     let kiezen = prompt(`Welk gerecht moet erbij zitten? `) - 1;
-    kiesGerecht.push(pyPop(_gerechten, kiezen));
-    console.log(kiesGerecht[0]._type)
-    switch (kiesGerecht[0]._type) {
+    switch (_gerechten[kiezen]._type) {
         case 'vlees':
             if (vlees == 0) {
-                throw 'Je had geen vlees gerechten gekozen'
+                kies();
             }
             vlees -= 1;
             break;
         case 'vis':
             if (vis == 0) {
-                throw 'Je had geen vis gerechten gekozen'
+                kies();
             }
             vis -= 1;
             break;
         case 'vega':
             if (vega == 0) {
-                throw 'Je had geen vega gerechten gekozen'
+                kies();
             }
             vega -= 1;
             break;
         default:
             throw 'Een bijgerecht kan niet op deze manier gekozen worden'
     }
+    kiesGerecht.push(pyPop(_gerechten, kiezen));
 }
 
 let happy = '';
