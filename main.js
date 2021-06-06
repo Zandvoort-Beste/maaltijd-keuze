@@ -69,6 +69,7 @@ const watEten = (type,hoeveel) => {
 // Dit stuurt de functies aan
 const aansturen = (vlees,vis,vega) => {
     sorteren(_gerechten);
+    gekozen = [];
     watEten(vegaGerechten,vega);
     watEten(visGerechten,vis);
     watEten(vleesGerechten,vlees);
@@ -104,8 +105,7 @@ const gekozenPrint = () => {
 const vervangen = () => {
     let welke = happy - 1
             let random
-            let type = gekozen[welke]._type
-        switch (type) {
+        switch (gekozen[welke]._type) {
             case 'vlees':
                 random = randomLaag(vleesGerechten)
                 gekozen[welke] = pyPop(vleesGerechten, random);
@@ -150,6 +150,29 @@ const kies = () => {
     console.log('');
     let kiezen = prompt(`Welk gerecht moet erbij zitten? `) - 1;
     kiesGerecht.push(pyPop(_gerechten, kiezen));
+    console.log(kiesGerecht[0]._type)
+    switch (kiesGerecht[0]._type) {
+        case 'vlees':
+            if (vlees == 0) {
+                throw 'Je had geen vlees gerechten gekozen'
+            }
+            vlees -= 1;
+            break;
+        case 'vis':
+            if (vis == 0) {
+                throw 'Je had geen vis gerechten gekozen'
+            }
+            vis -= 1;
+            break;
+        case 'vega':
+            if (vega == 0) {
+                throw 'Je had geen vega gerechten gekozen'
+            }
+            vega -= 1;
+            break;
+        default:
+            throw 'Een bijgerecht kan niet op deze manier gekozen worden'
+    }
 }
 
 let happy = '';
@@ -170,15 +193,13 @@ if (dagen < vega + vis) {
 }
 let nieuwProberen = prompt('Nieuw gerecht proberen? ').toLowerCase();
 let kiezen = prompt('Wil je een gerecht kiezen? ').toLowerCase();
-if (nieuwProberen == 'ja' && kiezen == 'ja') {
-    dagen -= 2;
-} else if (nieuwProberen == 'ja' || kiezen == 'ja') {
+if (nieuwProberen == 'ja') {
     dagen -= 1;
 }
+let vlees = dagen - vega - vis;
 if (kiezen == 'ja') {
     kies()
 }
-let vlees = dagen - vega - vis;
 
 do {
     aansturen(vlees,vis,vega);

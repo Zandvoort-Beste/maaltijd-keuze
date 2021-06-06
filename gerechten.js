@@ -27,7 +27,11 @@ class Gerechten {
         }
     }
     get alleGerechten () {
-        return `${this._name} uit ${this._source}`;
+        if (this._type == 'bijGerecht') {
+            return `Bijgerechten kunnen niet gekozen worden`
+        } else {
+            return `${this._name} uit ${this._source}`;
+            }
     }
     get naam () {
         if (this._bijGerechtReq == false) {
