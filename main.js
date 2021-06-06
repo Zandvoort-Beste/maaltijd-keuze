@@ -171,7 +171,7 @@ if (dagen < vega + vis) {
 let nieuwProberen = prompt('Nieuw gerecht proberen? ').toLowerCase();
 let kiezen = prompt('Wil je een gerecht kiezen? ').toLowerCase();
 if (nieuwProberen == 'ja' && kiezen == 'ja') {
-    dagen -= 1;
+    dagen -= 2;
 } else if (nieuwProberen == 'ja' || kiezen == 'ja') {
     dagen -= 1;
 }
