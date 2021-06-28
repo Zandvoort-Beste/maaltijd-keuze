@@ -85,7 +85,7 @@ const aansturen = (vlees,vis,vega) => {
 }
 
 // Dit is om de boodschappen te tonen
-const boodschappen = array  => {
+const boodschappen = array => {
     console.log('\n Deze boodschappen zijn nodig: \n');
     for (let i = 0; i < array.length; i++) {
         array[i].ingredients;
@@ -111,23 +111,23 @@ const vervangen = () => {
     }
     let welke = happy - 1
             let random
-        switch (gekozen[welke]._type) {
-            case 'vlees':
-                random = randomLaag(vleesGerechten)
-                gekozen[welke] = pyPop(vleesGerechten, random);
-                break;
-            case 'vis':
-                random = randomLaag(visGerechten)
-                gekozen[welke] = pyPop(visGerechten, random);
-                break;
-            case 'vega':
-                random = randomLaag(vegaGerechten)
-                gekozen[welke] = pyPop(vegaGerechten, random);
-                break;       
-            default:
-                gekozen[welke] = nieuwGerecht();
-                break;
-        }
+    switch (gekozen[welke]._type) {
+        case 'vlees':
+            random = randomLaag(vleesGerechten)
+            gekozen[welke] = pyPop(vleesGerechten, random);
+            break;
+        case 'vis':
+            random = randomLaag(visGerechten)
+            gekozen[welke] = pyPop(visGerechten, random);
+            break;
+        case 'vega':
+            random = randomLaag(vegaGerechten)
+            gekozen[welke] = pyPop(vegaGerechten, random);
+            break;       
+        default:
+            gekozen[welke] = nieuwGerecht();
+            break;
+    }
 }
 
 // Hier check is of Suus en Juul kut zijn
