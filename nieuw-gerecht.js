@@ -1,5 +1,4 @@
 const prompt = require('prompt-sync')({sigint: true});
-let antwoord = ''
 class Boeken {
     constructor (naam,pages,intro) {
         this._naam = naam;
