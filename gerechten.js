@@ -30,12 +30,20 @@ class Gerechten {
         if (this._type == 'bijGerecht') {
             return `Bijgerechten kunnen niet gekozen worden`
         } else {
+            if (this._source == undefined) {
+                return this._name
+            } else {
             return `${this._name} uit ${this._source}`;
+                }
             }
     }
     get naam () {
         if (this._bijGerechtReq == false) {
+            if (this._source == undefined) {
+                return this._name
+            } else {
             return `${this._name} uit ${this._source}`;
+            }
         } else {
             return `${this._name} uit ${this._source} met ${this._bijGerecht._name}`
         }
@@ -45,7 +53,7 @@ class Gerechten {
 const bijGerechten = require('./main')
 // Alle mogelijke hoofd gerechten
 
-const pastaPesto = new Gerechten('Pasta pesto',undefined,false,false,'vlees',['Pasta','Pesto','Rucola','Pijnboom pitten','Parmezaanse kaas','Kip','Cherry tomaten','Knoflook'])
+const pastaPesto = new Gerechten('Pasta pesto',undefined,false,false,'vlees',['Pasta','Pesto','Rucola','Pijnboom pitten','Parmezaanse kaas','Kip','Cherry tomaten','Knoflook'],undefined)
 const beefBasil = new Gerechten('Beef Basil',2,false,false,'vlees',['300g gehakt','2 el vissaus','2 el sojasaus','1tl suiker','Basilicum','Verse rode pepers','Rijst','Kokosmelk'],'Thai keuken bijbel')
 const jackFruit = new Gerechten('Jackfruit Stoofschotel',4,false,false,'vega',['1 blik jackfruit 500 ml','2 teentjes knoflook fijngehakt','1 ui in ringen','1 winterwortel in blokjes','2 stengels bleekselderij in blokjes','1 laurierblad','2 kruidnagels','1 tl korianderpoeder','1 tl gemberpoeder','0,5 tl nootmuskaatpoeder','1 tl mosterd','40 gram ontbijtkoek','1 el bloem','70 gram tomatenpuree','350 ml groentebouillon','Zonnebloemolie','Peper en zout'],'https://miljuschka.nl/jackfruitstoofschotel/')
 const couscous = new Gerechten('Couscous',undefined,false,false,'vlees',['Worst','Bouillon', 'Rozijnen', 'Feta', 'Pijnboompitten', 'Knoflook', 'Zongedroode Tomaat', 'Rucola', 'Honing'],'Notitie iOS')
